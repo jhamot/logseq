@@ -20,7 +20,7 @@ WORKDIR /data/
 RUN git clone https://github.com/logseq/logseq.git &&  cd /data/logseq && yarn && yarn release && mv ./static ./public
 
 # Web App Runner image
-FROM nginx:stable-alpine
+FROM nginx:1.29.5-alpine3.23
 
 COPY --from=builder /data/logseq/public /usr/share/nginx/html
 
